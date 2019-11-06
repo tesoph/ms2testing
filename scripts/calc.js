@@ -108,8 +108,8 @@ let sketch = function (p) {
         }
     }
     p.moversList = [];
-    p.w = containerWidth;
-    p.h = containerHeight;
+    p.w = 500;
+    p.h = 500;
     /*
         p.preload = function () {
             p.mySound = p.loadSound("assets/audio/aiwdily.mp3");
