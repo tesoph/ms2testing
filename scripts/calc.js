@@ -128,7 +128,7 @@ let sketch = function (p) {
         p.initializeMovers();
         //Number of movers then changed to match slider input value
 
-p.backgroundColor = p.color(0,0,0);
+        p.backgroundColor = p.color(0, 0, 0);
         p.background(p.backgroundColor);
         p.backgroundColor.setAlpha(5);
         //Get the mic and attach an fft object to analyse the audio from it
@@ -182,16 +182,16 @@ p.backgroundColor = p.color(0,0,0);
     p.initializeVariables = function () {
 
         p.sensitivity = 100
-        p.myColor = p.color(0,0,0);
+        p.myColor = p.color(0, 0, 0);
         p.strokeWidth = 1
-        p.highMidColor = p.color(5,5,5);
+        p.highMidColor = p.color(5, 5, 5);
         p.lines = true;
         p.shapeMode = true;
         p.topspeed2 = 5;
         p.numberOfMovers = 50;
         p.moversLowMid = [];
         p.moversHighMid = [];
-p.strokeColor =p.color(5,5,5);
+        p.strokeColor = p.color(5, 5, 5);
         let bgCol = "white";
         //myp5.changeBackgroundColor(bgCol);
 
@@ -248,8 +248,9 @@ p.strokeColor =p.color(5,5,5);
             p.backgroundColor = p.color(0, 0, 0, 5);
             p.strokeColor = p.color(255, 255, 255);
             return true;
-        } else{
-            alert("a");
+        } else {
+            p.backgroundColor = p.color(255, 255, 255, 5);
+            p.strokeColor = p.color(0, 0, 0);
             return false;
         }
     }
@@ -355,8 +356,14 @@ p.strokeColor =p.color(5,5,5);
     }
 
     p.windowResized = function (w_, h_) {
-        p.w = w_;
-        p.h = h_;
+        if (!isNaN(w_) && !isNaN(h_)) {
+            p.w = w_;
+            p.h = h_;
+        }
+        else {
+            p.w = 200;
+            p.h = 200;
+        }
         p.resizeCanvas(p.w, p.h);
         p.initializeMovers();
     }
@@ -489,8 +496,8 @@ window.onload = function () {
     /////////Action buttons/////////
     //Settings button (Opens settings menu)
     $("#settings").on("click", function () {
-     //   $("#toggler").toggle("slide", {}, 100);
-     $("#toggler").toggle();
+        //   $("#toggler").toggle("slide", {}, 100);
+        $("#toggler").toggle();
     });
 
     //Make settings menu draggable
