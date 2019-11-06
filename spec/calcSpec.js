@@ -41,7 +41,8 @@ describe('Testing the functionality, this is the checklist', ()=>{
 
     
     let myp = new p5(sketch);
-      expect(myp.changeBackgroundColor(backgroundColor).toBe(true));
+    let backgroundColor="white";
+      expect(myp.changeBackgroundColor(backgroundColor)).toBe(true);
      // const done = todo.addTodo(item)
     //  expect(todo.getItems().length).toBe(1);
     })

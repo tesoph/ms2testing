@@ -128,7 +128,7 @@ let sketch = function (p) {
         p.initializeMovers();
         //Number of movers then changed to match slider input value
 
-
+p.backgroundColor = p.color(0,0,0);
         p.background(p.backgroundColor);
         p.backgroundColor.setAlpha(5);
         //Get the mic and attach an fft object to analyse the audio from it
@@ -181,19 +181,19 @@ let sketch = function (p) {
 
     p.initializeVariables = function () {
 
-        p.sensitivity = $('#sensitivity-slider').val();
-        p.myColor = $('#lowMidColor').val();
-        p.strokeWidth = $("#stroke-weight-picker").val();
-        p.highMidColor = $('#highMidColorPicker').val();
-        p.lines = $('#linesCheckbox').is(":checked");
-        p.shapeMode = $('#shapeCheckbox').is(":checked");
-        p.topspeed2 = $('#topspeed-slider').val();
-        p.numberOfMovers = $('#number-of-movers').val();
+        p.sensitivity = 100
+        p.myColor = p.color(0,0,0);
+        p.strokeWidth = 1
+        p.highMidColor = p.color(5,5,5);
+        p.lines = true;
+        p.shapeMode = true;
+        p.topspeed2 = 5;
+        p.numberOfMovers = 50;
         p.moversLowMid = [];
         p.moversHighMid = [];
-
-        let bgCol = document.querySelector('input[name="backgroundColorRadio"]:checked').value;
-        myp5.changeBackgroundColor(bgCol);
+p.strokeColor =p.color(5,5,5);
+        let bgCol = "white";
+        //myp5.changeBackgroundColor(bgCol);
 
     }
 
@@ -238,24 +238,19 @@ let sketch = function (p) {
         p.mySound.play();
         p.playingAudioFile = true;
     }
-    changeBackgroundColor = function (bgCol_) {
-        if (bgCol_ === "white") {
-            p.backgroundColor = p.color(255, 255, 255, 5);
-            p.strokeColor = p.color(0, 0, 0);
-        } else if (bgCol_ === "black") {
-            p.backgroundColor = p.color(0, 0, 0, 5);
-            p.strokeColor = p.color(255, 255, 255);
-        }
-    }
+
     p.changeBackgroundColor = function (bgCol_) {
         if (bgCol_ === "white") {
             p.backgroundColor = p.color(255, 255, 255, 5);
             p.strokeColor = p.color(0, 0, 0);
+            return true;
         } else if (bgCol_ === "black") {
             p.backgroundColor = p.color(0, 0, 0, 5);
             p.strokeColor = p.color(255, 255, 255);
+            return true;
         } else{
             alert("a");
+            return false;
         }
     }
 
