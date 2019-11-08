@@ -253,7 +253,7 @@ let sketch = function (p) {
         } else {
             p.backgroundColor = p.color(255, 255, 255, 5);
             p.strokeColor = p.color(0, 0, 0);
-            return false;
+            throw "InvalidColor";
         }
     }
 
@@ -365,10 +365,12 @@ let sketch = function (p) {
         else {
             p.w = 200;
             p.h = 200;
+           // throw "width and height are numbers"
         }
         p.resizeCanvas(p.w, p.h);
         p.initializeMovers();
     }
+ 
 
 
     // https://codetheory.in/weighted-biased-random-number-generation-with-javascript-based-on-probability// Weighted random number generation
@@ -618,7 +620,7 @@ window.onload = function () {
  */
 
     //randomizeSensitivty to replicate moving the sensitivity slider, which seems to help if the movers get stuck.
-    let intervalID = setInterval(randomizeSensitivity, 5000);
+    setInterval(randomizeSensitivity, 5000);
     function randomizeSensitivity() {
         let min = 1;
         let max = 5;

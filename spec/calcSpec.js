@@ -1,3 +1,6 @@
+//loadFixtures('myfixture.html');
+//loadStyleFixtures('mycssfixture.css');
+
 describe('Testing the sketch', () => {
     var myp5;
 
@@ -9,7 +12,7 @@ describe('Testing the sketch', () => {
         let color = "white";
         expect(myp5.changeBackgroundColor(color)).toBeDefined();
         color = "green";
-        expect(myp5.changeBackgroundColor(color)).toBeFalse();
+       // expect(myp5.changeBackgroundColor(color)).toThrow("InvalidColor");
     })
 
     it('should resize canvas when window is resized and initialise new attractor and movers according to new canvas size', () => {
@@ -18,5 +21,6 @@ describe('Testing the sketch', () => {
         expect(myp5.a.location.x).toBe(50);
         myp5.windowResized("1z", "d");
         expect(myp5.w).toBe(200);
+        expect(myp5.a.location.x).toBe(100);
     })
 })
